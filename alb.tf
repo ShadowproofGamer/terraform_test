@@ -1,6 +1,6 @@
 resource "aws_lb" "ecs_alb_ttt" {
   name               = "ecs-alb-ttt"
-  load_balancer_type = "network"
+  load_balancer_type = "application" #"network"
   subnets            = [aws_subnet.subnet-1.id, aws_subnet.subnet-2.id]
   security_groups    = [aws_security_group.allow_web.id]
   tags = {
@@ -59,6 +59,6 @@ output "nlb_dns_name" {
   value = aws_lb.ecs_alb_ttt.dns_name
 }
 
-output "nlb_elastic_ip" {
-  value = aws_eip.static_ip.public_ip
-}
+#output "nlb_elastic_ip" {
+#  value = aws_eip.static_ip.public_ip
+#}
