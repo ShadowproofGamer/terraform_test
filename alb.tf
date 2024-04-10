@@ -51,6 +51,12 @@ resource "aws_lb_target_group" "ecs_tg_ttt_2" {
   target_type = "ip"
   vpc_id      = aws_vpc.prod-vpc.id
 
+  health_check {
+    healthy_threshold = 5
+    path = "/ws"
+    unhealthy_threshold = 5
+  }
+
 }
 resource "aws_lb_listener" "ecs_alb_listener_2" {
   load_balancer_arn = aws_lb.ecs_alb_ttt_2.arn
