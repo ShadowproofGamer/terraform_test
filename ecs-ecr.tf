@@ -101,7 +101,7 @@ resource "aws_ecs_service" "backend_service" {
   launch_type     = "FARGATE"
   desired_count   = 1
   load_balancer {
-    target_group_arn = aws_lb_target_group.ecs_tg_ttt.arn
+    target_group_arn = aws_lb_target_group.ecs_tg_ttt_2.arn
     container_name   = aws_ecs_task_definition.backend_task.family
     container_port   = 8080
   }
